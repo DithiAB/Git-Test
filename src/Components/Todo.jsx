@@ -12,7 +12,12 @@ const Todo = () => {
         setData('')
         }
     }
-
+const deleteItem=(id)=>{
+    const deletedItem= item.filter((elem, index)=>{
+        return index!==id
+    })
+    setItem(deletedItem)
+}
    
   return (
     <div className='main'>
@@ -28,7 +33,7 @@ const Todo = () => {
         </div>
         <div>
             {item.map((elem, index)=>{
-                 return <List elem={elem} key={index}   />  
+                 return <List elem={elem} key={index} index={index} deleteItem={deleteItem} />  
             })}
         </div>
     </div>
